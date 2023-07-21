@@ -851,7 +851,7 @@ set_target_properties(devicetree_target PROPERTIES "DT_PROP|/soc/spi@40013000/il
 set_target_properties(devicetree_target PROPERTIES "DT_PROP|/soc/spi@40013000/ili9340@0|rotation" "90")
 set_target_properties(devicetree_target PROPERTIES "DT_PROP|/soc/spi@40013000/ili9340@0|display-inversion" "False")
 set_target_properties(devicetree_target PROPERTIES "DT_PROP|/soc/spi@40013000/ili9340@0|reg" "0;")
-set_target_properties(devicetree_target PROPERTIES "DT_PROP|/soc/spi@40013000/ili9340@0|spi-max-frequency" "500000")
+set_target_properties(devicetree_target PROPERTIES "DT_PROP|/soc/spi@40013000/ili9340@0|spi-max-frequency" "1000000")
 set_target_properties(devicetree_target PROPERTIES "DT_PROP|/soc/spi@40013000/ili9340@0|duplex" "0")
 set_target_properties(devicetree_target PROPERTIES "DT_PROP|/soc/spi@40013000/ili9340@0|frame-format" "0")
 set_target_properties(devicetree_target PROPERTIES "DT_PROP|/soc/spi@40013000/ili9340@0|compatible" "ilitek,ili9340;")
