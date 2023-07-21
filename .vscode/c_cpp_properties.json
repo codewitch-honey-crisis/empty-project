@@ -21,6 +21,7 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "C:/Users/gazto/zephyrproject/zephyr/**"
+                "${workspaceFolder}"
             ],
             "defines": [
                 "_DEBUG",

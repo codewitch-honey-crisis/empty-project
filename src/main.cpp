@@ -3,7 +3,7 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  */
-
+#define SPI_OP  SPI_OP_MODE_MASTER |SPI_MODE_CPOL | SPI_MODE_CPHA | SPI_WORD_SET(8) | SPI_LINES_SINGLE
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/drivers/spi.h>
@@ -135,29 +135,12 @@ int main(void)
 			citoa(count/100,sz,10);
 			lv_label_set_text(count_label, sz);
 		}
-		printk("try task handler\r\n");
-/*
-try task handler
-
-[00:00:00.132,000] [1B][1;31m<err> os: ***** MPU FAULT *****[1B][0m
-[00:00:00.132,000] [1B][1;31m<err> os:   Stacking error (context area might be not valid)[1B][0m
-[00:00:00.132,000] [1B][1;31m<err> os:   Data Access Violation[1B][0m
-[00:00:00.132,000] [1B][1;31m<err> os:   MMFAR Address: 0x24011b64[1B][0m
-[00:00:00.132,000] [1B][1;31m<err> os: r0/a1:  0x00000000  r1/a2:  0x0000013f  r2/a3:  0x000000ef[1B][0m
-[00:00:00.132,000] [1B][1;31m<err> os: r3/a4:  0x00000000 r12/ip:  0x29df952a r14/lr:  0x1dfd7b90[1B][0m
-[00:00:00.132,000] [1B][1;31m<err> os:  xpsr:  0x22b84000[1B][0m
-[00:00:00.132,000] [1B][1;31m<err> os: Faulting instruction address (r15/pc): 0x0459c661[1B][0m
-[00:00:00.132,000] [1B][1;31m<err> os: >>> ZEPHYR FATAL ERROR 2: Stack overflow on CPU 0[1B][0m
-[00:00:00.132,000] [1B][1;31m<err> os: Current thread: 0x24000f30 (unknown)[1B][0m
-[00:00:00.188,000] [1B][1;31m<err> os: Halting system[1B][0m
-*/
+		
 		lv_task_handler();
-		printk("got here 12\r\n");
 		k_timeout_t t;
 		t.ticks = 10;
 		k_sleep(t);
 		++count;
-		printk(".\r\n");
 		if(count>99900) {
 			count = 0;
 		}

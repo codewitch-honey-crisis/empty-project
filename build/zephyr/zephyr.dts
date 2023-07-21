@@ -97,7 +97,7 @@
 				#gpio-cells = < 0x2 >;
 				reg = < 0x58020000 0x400 >;
 				clocks = < &rcc 0xe0 0x1 >;
-				phandle = < 0x1f >;
+				phandle = < 0xe >;
 			};
 			gpiob: gpio@58020400 {
 				compatible = "st,stm32-gpio";
@@ -121,7 +121,7 @@
 				#gpio-cells = < 0x2 >;
 				reg = < 0x58020c00 0x400 >;
 				clocks = < &rcc 0xe0 0x8 >;
-				phandle = < 0xe >;
+				phandle = < 0x10 >;
 			};
 			gpioe: gpio@58021000 {
 				compatible = "st,stm32-gpio";
@@ -178,47 +178,47 @@
 			eth_crs_dv_pa7: eth_crs_dv_pa7 {
 				pinmux = < 0xeb >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x13 >;
+				phandle = < 0x14 >;
 			};
 			eth_mdc_pc1: eth_mdc_pc1 {
 				pinmux = < 0x42b >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x14 >;
+				phandle = < 0x15 >;
 			};
 			eth_mdio_pa2: eth_mdio_pa2 {
 				pinmux = < 0x4b >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x12 >;
+				phandle = < 0x13 >;
 			};
 			eth_ref_clk_pa1: eth_ref_clk_pa1 {
 				pinmux = < 0x2b >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x11 >;
+				phandle = < 0x12 >;
 			};
 			eth_rxd0_pc4: eth_rxd0_pc4 {
 				pinmux = < 0x48b >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x15 >;
+				phandle = < 0x16 >;
 			};
 			eth_rxd1_pc5: eth_rxd1_pc5 {
 				pinmux = < 0x4ab >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x16 >;
+				phandle = < 0x17 >;
 			};
 			eth_txd0_pg13: eth_txd0_pg13 {
 				pinmux = < 0xdab >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x18 >;
+				phandle = < 0x19 >;
 			};
 			eth_txd1_pb13: eth_txd1_pb13 {
 				pinmux = < 0x3ab >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x19 >;
+				phandle = < 0x1a >;
 			};
 			eth_tx_en_pg11: eth_tx_en_pg11 {
 				pinmux = < 0xd6b >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x17 >;
+				phandle = < 0x18 >;
 			};
 			i2c1_scl_pb8: i2c1_scl_pb8 {
 				pinmux = < 0x304 >;
@@ -250,7 +250,7 @@
 			};
 			tim12_ch1_pb14: tim12_ch1_pb14 {
 				pinmux = < 0x3c2 >;
-				phandle = < 0x10 >;
+				phandle = < 0x11 >;
 			};
 			usart2_rx_pd6: usart2_rx_pd6 {
 				pinmux = < 0x6c7 >;
@@ -272,11 +272,11 @@
 			};
 			usb_otg_hs_dm_pa11: usb_otg_hs_dm_pa11 {
 				pinmux = < 0x170 >;
-				phandle = < 0x1b >;
+				phandle = < 0x1c >;
 			};
 			usb_otg_hs_dp_pa12: usb_otg_hs_dp_pa12 {
 				pinmux = < 0x190 >;
-				phandle = < 0x1c >;
+				phandle = < 0x1d >;
 			};
 		};
 		iwdg: iwdg1: watchdog@58004800 {
@@ -438,10 +438,10 @@
 			status = "okay";
 			pinctrl-0 = < &spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pb5 >;
 			pinctrl-names = "default";
-			cs-gpios = < &gpiod 0xe 0x0 >;
+			cs-gpios = < &gpioa 0xf 0x1 >;
 			ili9340: ili9340@0 {
 				compatible = "ilitek,ili9340";
-				spi-max-frequency = < 0x1312d00 >;
+				spi-max-frequency = < 0xf4240 >;
 				reg = < 0x0 >;
 				reset-gpios = < &gpiof 0x3 0x0 >;
 				cmd-data-gpios = < &gpiod 0xf 0x0 >;
@@ -833,7 +833,7 @@
 			vbat-channel = < 0x10 >;
 			temp-channel = < 0x11 >;
 			vref-channel = < 0x12 >;
-			phandle = < 0x1e >;
+			phandle = < 0x1f >;
 		};
 		dac1: dac@40007400 {
 			compatible = "st,stm32-dac";
@@ -1064,7 +1064,7 @@
 			status = "okay";
 			hse-bypass;
 			clock-frequency = < 0x7a1200 >;
-			phandle = < 0x1d >;
+			phandle = < 0x1e >;
 		};
 		clk_hsi: clk-hsi {
 			#clock-cells = < 0x0 >;
@@ -1184,7 +1184,7 @@
 	otghs_fs_phy: otghs_fs_phy {
 		compatible = "usb-nop-xceiv";
 		#phy-cells = < 0x0 >;
-		phandle = < 0x1a >;
+		phandle = < 0x1b >;
 	};
 	arduino_header: connector {
 		compatible = "arduino-header-r3";

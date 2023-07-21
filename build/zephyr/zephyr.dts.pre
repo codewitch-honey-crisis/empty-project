@@ -5503,11 +5503,11 @@ zephyr_udc0: &usbotg_hs {
 
 &arduino_spi {
  status = "okay";
- cs-gpios = <&gpiod 14 (0 << 0)>;
+ cs-gpios = <&gpioa 15 (1 << 0)>;
 
  ili9340: ili9340@0 {
   compatible = "ilitek,ili9340";
-  spi-max-frequency = <20000000>;
+  spi-max-frequency = <1000000>;
   reg = <0>;
   reset-gpios = <&gpiof 3 (0 << 0)>;
         cmd-data-gpios = <&gpiod 15 (0 << 0)>;
