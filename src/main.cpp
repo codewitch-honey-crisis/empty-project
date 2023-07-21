@@ -85,26 +85,22 @@ static const struct gpio_dt_spec lcd_bl = GPIO_DT_SPEC_GET(ZEPHYR_USER_NODE, bl_
 
 int main(void)
 {
-	printk("got here 1\r\n");
 	int ret;
 
 	if (!gpio_is_ready_dt(&lcd_bl)) {
 		return -1;
 	}
-	printk("got here 2\r\n");
 	ret = gpio_pin_configure_dt(&lcd_bl, GPIO_OUTPUT_ACTIVE);
 	if (ret < 0) {
 		return -1;
 	}
 	gpio_pin_set_dt(&lcd_bl,1);
-	printk("got here 3\r\n");
 	uint32_t count = 0U;
 	char count_str[11] = {0};
 	const struct device *display_dev;
 	lv_obj_t *hello_world_label;
 	lv_obj_t *count_label;
 	display_dev =DEVICE_DT_GET(DT_CHOSEN(zephyr_display));
-	printk("got here 4\r\n");
 	if (display_dev == NULL) {
 		LOG_ERR("device not found.  Aborting test.");
 		gpio_pin_set_dt(&lcd_bl,0);
@@ -112,22 +108,15 @@ int main(void)
 	}
 
 	hello_world_label = lv_label_create(lv_scr_act());
-	printk("got here 6\r\n");
 	
 	lv_label_set_text(hello_world_label, "Hello world!");
-	printk("got here 7\r\n");
 	
 	lv_obj_align(hello_world_label,  LV_ALIGN_CENTER, 0, 0);
-	printk("got here 8\r\n");
-	
 	count_label = lv_label_create(lv_scr_act());
-	printk("got here 9\r\n");
 	
-	lv_obj_align(count_label, LV_ALIGN_OUT_BOTTOM_MID, 0, 0);
-	printk("got here 10\r\n");
+	lv_obj_align(count_label, LV_ALIGN_CENTER, 0, 50);
 	
 	display_blanking_off(display_dev);
-	printk("got here 11\r\n");
 	char sz[16];
 	while (1) {
 		if ((count % 100) == 0U) {
