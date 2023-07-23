@@ -1,4 +1,9 @@
 C:\Users\gazto\zephyr-sdk-0.16.1\cmake\zephyr\Kconfig
+C:\Users\gazto\zephyrproject\htcw_bits\zephyr\Kconfig
+C:\Users\gazto\zephyrproject\htcw_data\zephyr\Kconfig
+C:\Users\gazto\zephyrproject\htcw_gfx\zephyr\Kconfig
+C:\Users\gazto\zephyrproject\htcw_io\zephyr\Kconfig
+C:\Users\gazto\zephyrproject\htcw_ml\zephyr\Kconfig
 C:\Users\gazto\zephyrproject\modules\audio\sof\Kconfig.sof
 C:\Users\gazto\zephyrproject\modules\audio\sof\Kconfig.xtos-build
 C:\Users\gazto\zephyrproject\modules\audio\sof\Kconfig.xtos-dbg

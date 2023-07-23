@@ -41,7 +41,7 @@ CONFIG_SERIAL_INIT_PRIORITY=55
 CONFIG_CPU_HAS_CUSTOM_FIXED_SOC_MPU_REGIONS=y
 # CONFIG_TINYCRYPT is not set
 CONFIG_SERIAL=y
-CONFIG_MAIN_STACK_SIZE=1024
+CONFIG_MAIN_STACK_SIZE=8192
 # CONFIG_SRAM_VECTOR_TABLE is not set
 # CONFIG_USE_DT_CODE_PARTITION is not set
 CONFIG_FLASH_LOAD_OFFSET=0
@@ -103,6 +103,32 @@ CONFIG_DT_HAS_ZEPHYR_MEMORY_REGION_ENABLED=y
 #
 # Available modules.
 #
+
+#
+# htcw_bits (C:/Users/gazto/zephyrproject/htcw_bits)
+#
+
+#
+# htcw_bits configuration
+#
+CONFIG_HTCW_BITS=y
+# end of htcw_bits configuration
+
+CONFIG_ZEPHYR_HTCW_BITS_MODULE=y
+# end of htcw_bits (C:/Users/gazto/zephyrproject/htcw_bits)
+
+#
+# htcw_data (C:/Users/gazto/zephyrproject/htcw_data)
+#
+
+#
+# htcw_data configuration
+#
+CONFIG_HTCW_DATA=y
+# end of htcw_data configuration
+
+CONFIG_ZEPHYR_HTCW_DATA_MODULE=y
+# end of htcw_data (C:/Users/gazto/zephyrproject/htcw_data)
 
 #
 # acpica (C:/Users/gazto/zephyrproject/modules/lib/acpica)
@@ -649,6 +675,46 @@ CONFIG_ZEPHYR_ZSCILIB_MODULE=y
 #
 CONFIG_ZEPHYR_THRIFT_MODULE=y
 # end of thrift (C:/Users/gazto/zephyrproject/modules/lib/thrift)
+
+#
+# htcw_io (C:/Users/gazto/zephyrproject/htcw_io)
+#
+
+#
+# htcw_io configuration
+#
+CONFIG_HTCW_IO=y
+CONFIG_IO_NO_FS=y
+# end of htcw_io configuration
+
+CONFIG_ZEPHYR_HTCW_IO_MODULE=y
+# end of htcw_io (C:/Users/gazto/zephyrproject/htcw_io)
+
+#
+# htcw_ml (C:/Users/gazto/zephyrproject/htcw_ml)
+#
+
+#
+# htcw_io configuration
+#
+CONFIG_HTCW_ML=y
+# end of htcw_io configuration
+
+CONFIG_ZEPHYR_HTCW_ML_MODULE=y
+# end of htcw_ml (C:/Users/gazto/zephyrproject/htcw_ml)
+
+#
+# htcw_gfx (C:/Users/gazto/zephyrproject/htcw_gfx)
+#
+
+#
+# htcw_gfx configuration
+#
+CONFIG_HTCW_GFX=y
+# end of htcw_gfx configuration
+
+CONFIG_ZEPHYR_HTCW_GFX_MODULE=y
+# end of htcw_gfx (C:/Users/gazto/zephyrproject/htcw_gfx)
 
 #
 # Optional modules. Make sure they're installed, via the project manifest.
@@ -1388,7 +1454,19 @@ CONFIG_NEED_LIBC_MEM_PARTITION=y
 #
 # C++ Language Support
 #
-# CONFIG_CPP is not set
+CONFIG_CPP=y
+# CONFIG_STD_CPP98 is not set
+# CONFIG_STD_CPP11 is not set
+# CONFIG_STD_CPP14 is not set
+CONFIG_STD_CPP17=y
+# CONFIG_STD_CPP2A is not set
+# CONFIG_STD_CPP20 is not set
+# CONFIG_STD_CPP2B is not set
+# CONFIG_REQUIRES_FULL_LIBCPP is not set
+CONFIG_MINIMAL_LIBCPP=y
+# CONFIG_EXTERNAL_LIBCPP is not set
+# CONFIG_CPP_MAIN is not set
+CONFIG_CPP_STATIC_INIT_GNU=y
 
 #
 # Deprecated

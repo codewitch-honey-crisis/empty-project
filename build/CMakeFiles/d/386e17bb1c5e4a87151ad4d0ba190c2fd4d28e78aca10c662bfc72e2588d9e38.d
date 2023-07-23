@@ -61,8 +61,8 @@ zephyr/linker_zephyr_pre0.cmd: \
   C:/Users/gazto/zephyrproject/zephyr/include/zephyr/toolchain.h \
   C:/Users/gazto/zephyrproject/zephyr/include/zephyr/toolchain/common.h \
   C:/Users/gazto/zephyrproject/zephyr/include/zephyr/toolchain/gcc.h \
-  C:/Users/gazto/zephyrproject/zephyr/lib/libc/minimal/include/stdbool.h \
   C:/Users/gazto/zephyrproject/zephyr/soc/arm/st_stm32/stm32h7/linker.ld \
+  C:/Users/gazto/zephyr-sdk-0.16.1/arm-zephyr-eabi/lib/gcc/arm-zephyr-eabi/12.2.0/include/stdbool.h \
   C:/Users/gazto/zephyrproject/zephyr/arch/arm/core/aarch32/cortex_m/vector_table_pad.ld \
   C:/Users/gazto/zephyrproject/zephyr/arch/arm/core/aarch32/vector_table.ld \
   C:/Users/gazto/zephyrproject/zephyr/arch/common/ramfunc.ld \

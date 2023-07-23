@@ -69,6 +69,10 @@ KEEP(*(.gnu.linkonce.irq_vector_table*))
  . = ALIGN(4);
  } > FLASH
  __text_region_end = .;
+ .ARM.extab :
+ {
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+ } > FLASH
  .ARM.exidx :
  {
  __exidx_start = .;
@@ -119,6 +123,27 @@ ztest :
  _ztest_unit_test_list_start = .; KEEP(*(SORT_BY_NAME(._ztest_unit_test.static.*))); _ztest_unit_test_list_end = .;
  _ztest_test_rule_list_start = .; KEEP(*(SORT_BY_NAME(._ztest_test_rule.static.*))); _ztest_test_rule_list_end = .;
 } > FLASH
+ ctors :
+ {
+  . = ALIGN(4);
+  __ZEPHYR_CTOR_LIST__ = .;
+  LONG((__ZEPHYR_CTOR_END__ - __ZEPHYR_CTOR_LIST__) / 4 - 2)
+  KEEP(*(SORT_BY_NAME(".ctors*")))
+  __CTOR_LIST__ = .;
+  LONG(0)
+  __ZEPHYR_CTOR_END__ = .;
+  LONG(0)
+  __CTOR_END__ = .;
+ } > FLASH
+ init_array :
+ {
+  . = ALIGN(4);
+  __init_array_start = .;
+  __init_array_end = .;
+  __zephyr_init_array_start = .;
+  KEEP(*(SORT_BY_NAME(".init_array*")))
+  __zephyr_init_array_end = .;
+ } > FLASH
  bt_l2cap_fixed_chan_area : SUBALIGN(4) { _bt_l2cap_fixed_chan_list_start = .; KEEP(*(SORT_BY_NAME(._bt_l2cap_fixed_chan.static.*))); _bt_l2cap_fixed_chan_list_end = .; } > FLASH
  bt_gatt_service_static_area : SUBALIGN(4) { _bt_gatt_service_static_list_start = .; KEEP(*(SORT_BY_NAME(._bt_gatt_service_static.static.*))); _bt_gatt_service_static_list_end = .; } > FLASH
  log_strings_area : SUBALIGN(4) { _log_strings_list_start = .; KEEP(*(SORT_BY_NAME(._log_strings.static.*))); _log_strings_list_end = .; } > FLASH
@@ -147,6 +172,10 @@ ztest :
  *(".rodata.*")
  *(.gnu.linkonce.r.*)
  . = ALIGN(4);
+ } > FLASH
+ .gcc_except_table : ONLY_IF_RO
+ {
+ *(.gcc_except_table .gcc_except_table.*)
  } > FLASH
  __rodata_region_end = .;
  . = ALIGN(_region_min_align); . = ALIGN( 1 << LOG2CEIL(__rodata_region_end - ADDR(rom_start)));
@@ -209,6 +238,10 @@ __ramfunc_load_start = LOADADDR(.ramfunc);
  k_queue_area : ALIGN_WITH_INPUT SUBALIGN(4) { _k_queue_list_start = .; *(SORT_BY_NAME(._k_queue.static.*)); _k_queue_list_end = .; } > RAM AT > FLASH
  k_condvar_area : ALIGN_WITH_INPUT SUBALIGN(4) { _k_condvar_list_start = .; *(SORT_BY_NAME(._k_condvar.static.*)); _k_condvar_list_end = .; } > RAM AT > FLASH
  net_buf_pool_area : ALIGN_WITH_INPUT SUBALIGN(4) { _net_buf_pool_list_start = .; KEEP(*(SORT_BY_NAME(._net_buf_pool.static.*))); _net_buf_pool_list_end = .; } > RAM AT > FLASH
+ .gcc_except_table : ALIGN_WITH_INPUT ONLY_IF_RW
+ {
+ *(.gcc_except_table .gcc_except_table.*)
+ } > RAM AT > FLASH
     __data_region_end = .;
    bss (NOLOAD) : ALIGN_WITH_INPUT
  {

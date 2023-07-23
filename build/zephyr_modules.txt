@@ -1,3 +1,5 @@
+"htcw_bits":"C:/Users/gazto/zephyrproject/htcw_bits":"C:/Users/gazto/zephyrproject/htcw_bits/zephyr"
+"htcw_data":"C:/Users/gazto/zephyrproject/htcw_data":"C:/Users/gazto/zephyrproject/htcw_data/zephyr"
 "acpica":"C:/Users/gazto/zephyrproject/modules/lib/acpica":"${ZEPHYR_ACPICA_CMAKE_DIR}"
 "canopennode":"C:/Users/gazto/zephyrproject/modules/lib/canopennode":"${ZEPHYR_CANOPENNODE_CMAKE_DIR}"
 "chre":"C:/Users/gazto/zephyrproject/modules/lib/chre":"C:/Users/gazto/zephyrproject/modules/lib/chre/platform/zephyr"
@@ -51,3 +53,6 @@
 "zcbor":"C:/Users/gazto/zephyrproject/modules/lib/zcbor":"${ZEPHYR_ZCBOR_CMAKE_DIR}"
 "zscilib":"C:/Users/gazto/zephyrproject/modules/lib/zscilib":"C:/Users/gazto/zephyrproject/modules/lib/zscilib"
 "thrift":"C:/Users/gazto/zephyrproject/modules/lib/thrift":"${ZEPHYR_THRIFT_CMAKE_DIR}"
+"htcw_io":"C:/Users/gazto/zephyrproject/htcw_io":"C:/Users/gazto/zephyrproject/htcw_io/zephyr"
+"htcw_ml":"C:/Users/gazto/zephyrproject/htcw_ml":"C:/Users/gazto/zephyrproject/htcw_ml/zephyr"
+"htcw_gfx":"C:/Users/gazto/zephyrproject/htcw_gfx":"C:/Users/gazto/zephyrproject/htcw_gfx/zephyr"

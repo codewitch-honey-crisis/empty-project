@@ -49,6 +49,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("C:/Users/gazto/zephyrproject/zephyr/applications/empty-project/build/zephyr/lib/cpp/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("C:/Users/gazto/zephyrproject/zephyr/applications/empty-project/build/zephyr/lib/hash/cmake_install.cmake")
 endif()
 

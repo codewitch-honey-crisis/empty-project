@@ -69,6 +69,16 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("C:/Users/gazto/zephyrproject/zephyr/applications/empty-project/build/modules/htcw_bits/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/gazto/zephyrproject/zephyr/applications/empty-project/build/modules/htcw_data/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("C:/Users/gazto/zephyrproject/zephyr/applications/empty-project/build/modules/acpica/cmake_install.cmake")
 endif()
 
@@ -320,6 +330,21 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
   include("C:/Users/gazto/zephyrproject/zephyr/applications/empty-project/build/modules/thrift/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/gazto/zephyrproject/zephyr/applications/empty-project/build/modules/htcw_io/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/gazto/zephyrproject/zephyr/applications/empty-project/build/modules/htcw_ml/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/gazto/zephyrproject/zephyr/applications/empty-project/build/modules/htcw_gfx/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)

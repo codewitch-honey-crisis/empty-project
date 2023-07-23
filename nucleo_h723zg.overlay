@@ -5,6 +5,7 @@
 		zephyr,display = &ili9340;
 	};
     zephyr,user {
+		// backlight
         bl_gpios = <&gpioc 6 GPIO_ACTIVE_HIGH>;
     };
 };
@@ -12,7 +13,6 @@
 &arduino_spi {
 	status = "okay";
 	cs-gpios = <&gpioa 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-
 	ili9340: ili9340@0 {
 		compatible = "ilitek,ili9340";
 		spi-max-frequency = <20000000>;

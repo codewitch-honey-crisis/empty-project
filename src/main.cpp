@@ -7,17 +7,54 @@
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/drivers/spi.h>
+#include <zephyr/drivers/i2c.h>
 #include <zephyr/device.h>
 #include <zephyr/drivers/display.h>
 #include <lvgl.h>
 #include <string.h>
-
+#include <gfx.hpp>
+using namespace gfx;
 #define LOG_LEVEL CONFIG_LOG_DEFAULT_LEVEL
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(app);
 
 extern "C" int main(void);
 
+#include "pca8685_def.h"
+extern "C" {
+	int pca9685_reset(const device* i2c_dev, uint8_t address);
+	int pca9685_sleep(const device* i2c_dev, uint8_t address);
+}
+int pca9685_reset(const device* i2c_dev, uint8_t address) {
+	int ret = i2c_reg_write_byte(i2c_dev, address,
+                             PCA9685_MODE1, MODE1_RESTART);
+    if (ret)
+    {
+        printk("Unable write to MODE1. (err %i)\n", ret);
+        return ret;
+    }
+	k_sleep({10});
+	return 0;
+}
+int pca9685_sleep(const device* i2c_dev, uint8_t address) {
+	uint8_t val;
+	int ret = i2c_reg_read_byte(i2c_dev,address,PCA9685_MODE1,&val);
+	if (ret)
+    {
+        printk("Unable read from MODE1. (err %i)\n", ret);
+        return ret;
+    }
+	uint8_t sleep = val | MODE1_SLEEP; // set sleep bit high
+	ret = i2c_reg_write_byte(i2c_dev, address,
+                             PCA9685_MODE1, sleep);
+    if (ret)
+    {
+        printk("Unable write to MODE1. (err %i)\n", ret);
+        return ret;
+    }
+	k_sleep({5});
+	return 0;
+}
 /* 1000 msec = 1 sec */
 #define SLEEP_TIME_MS   1000
 
@@ -82,12 +119,17 @@ char* citoa(int num, char* str, int base)
  * See the sample documentation for information on how to fix this.
  */
 static const struct gpio_dt_spec lcd_bl = GPIO_DT_SPEC_GET(ZEPHYR_USER_NODE, bl_gpios);
-
+//static const struct device* i2c_dev = DEVICE_DT_GET(DT_NODELABEL(i2c1));
 int main(void)
 {
 	int ret;
-
+ 	/*if (i2c_dev == NULL || !device_is_ready(i2c_dev))
+    {
+        printk("Could not get I2C device\n");
+        return -1;
+    }*/
 	if (!gpio_is_ready_dt(&lcd_bl)) {
+		printk("Could not get GPIO\n");
 		return -1;
 	}
 	ret = gpio_pin_configure_dt(&lcd_bl, GPIO_OUTPUT_ACTIVE);

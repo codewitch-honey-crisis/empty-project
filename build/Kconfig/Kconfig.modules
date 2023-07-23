@@ -1,3 +1,15 @@
+menu "htcw_bits (C:/Users/gazto/zephyrproject/htcw_bits)"
+osource "C:/Users/gazto/zephyrproject/htcw_bits/zephyr/Kconfig"
+config ZEPHYR_HTCW_BITS_MODULE
+	bool
+	default y
+endmenu
+menu "htcw_data (C:/Users/gazto/zephyrproject/htcw_data)"
+osource "C:/Users/gazto/zephyrproject/htcw_data/zephyr/Kconfig"
+config ZEPHYR_HTCW_DATA_MODULE
+	bool
+	default y
+endmenu
 menu "acpica (C:/Users/gazto/zephyrproject/modules/lib/acpica)"
 osource "$(ZEPHYR_ACPICA_KCONFIG)"
 config ZEPHYR_ACPICA_MODULE
@@ -187,6 +199,24 @@ endmenu
 menu "thrift (C:/Users/gazto/zephyrproject/modules/lib/thrift)"
 osource "$(ZEPHYR_THRIFT_KCONFIG)"
 config ZEPHYR_THRIFT_MODULE
+	bool
+	default y
+endmenu
+menu "htcw_io (C:/Users/gazto/zephyrproject/htcw_io)"
+osource "C:/Users/gazto/zephyrproject/htcw_io/zephyr/Kconfig"
+config ZEPHYR_HTCW_IO_MODULE
+	bool
+	default y
+endmenu
+menu "htcw_ml (C:/Users/gazto/zephyrproject/htcw_ml)"
+osource "C:/Users/gazto/zephyrproject/htcw_ml/zephyr/Kconfig"
+config ZEPHYR_HTCW_ML_MODULE
+	bool
+	default y
+endmenu
+menu "htcw_gfx (C:/Users/gazto/zephyrproject/htcw_gfx)"
+osource "C:/Users/gazto/zephyrproject/htcw_gfx/zephyr/Kconfig"
+config ZEPHYR_HTCW_GFX_MODULE
 	bool
 	default y
 endmenu
