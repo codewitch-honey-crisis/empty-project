@@ -21,7 +21,7 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/build/modules/**",
-                "C:/Users/gazto/zephyrproject/zephyr/**"
+                "C:/Users/gazto/zephyrproject/zephyr/**",
                 "${workspaceFolder}"
             ],
             "defines": [
