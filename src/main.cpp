@@ -173,7 +173,6 @@ int main(void)
 	char sz[16];
 	while (1) {
 		if ((count % 100) == 0U) {
-			// sprintf(count_str, "%d", count/100U);
 			citoa(count / 100, sz, 10);
 			count_label.text(sz);
 		}
