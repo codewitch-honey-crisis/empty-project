@@ -17,9 +17,10 @@ const struct device *display_dev = DEVICE_DT_GET(DT_CHOSEN(zephyr_display));
 uint8_t lcd_buffer[lcd_buffer_size];
 screen_t main_screen(lcd_buffer_size, lcd_buffer);
 screen_t disconnected_screen(lcd_buffer_size, lcd_buffer);
-screen_t& active_screen = disconnected_screen;
+screen_t* active_screen = &disconnected_screen;
 void uix_flush(const rect16 &bounds, const void *bmp, void *state) {
-	uint16_t w = bounds.x2 - bounds.x1 + 1;
+	if(active_screen==nullptr) { return; }
+    uint16_t w = bounds.x2 - bounds.x1 + 1;
 	uint16_t h = bounds.y2 - bounds.y1 + 1;
 	struct display_buffer_descriptor desc;
 	desc.buf_size = screen_t::bitmap_type::sizeof_buffer({w, h});
@@ -27,7 +28,7 @@ void uix_flush(const rect16 &bounds, const void *bmp, void *state) {
 	desc.pitch = w;
 	desc.height = h;
 	display_write(display_dev, bounds.x1, bounds.y1, &desc, (void *)bmp);
-    active_screen.set_flush_complete();
+    active_screen->set_flush_complete();
 }
 
 // used for the draw routines

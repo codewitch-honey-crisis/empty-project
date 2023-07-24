@@ -21,7 +21,7 @@ constexpr static const size_t lcd_buffer_size = 64 * 1024;
 extern uint8_t lcd_buffer[];
 extern screen_t main_screen;
 extern screen_t disconnected_screen;
-extern screen_t& active_screen;
+extern screen_t* active_screen;
 constexpr static const gfx::rgba_pixel<32> transparent(0, 0, 0, 0);
 
 extern void uix_flush(const gfx::rect16 &bounds, const void *bmp, void *state);
@@ -42,12 +42,6 @@ extern float gpu_values[];
 extern int gpu_max_temp;
 // the colors for the GPU bar and graph
 extern gfx::rgba_pixel<32> gpu_colors[];
-
-// the screen that holds the controls
-extern screen_t main_screen;
-
-// the disconnected screen
-extern screen_t disconnected_screen;
 
 // the controls for the CPU
 extern label_t cpu_label;
