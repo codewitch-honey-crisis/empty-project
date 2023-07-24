@@ -31,9 +31,6 @@ using label_t = label<screen_t::control_surface_type>;
 using color_t = color<typename screen_t::pixel_type>;
 using color32_t = color<rgba_pixel<32>>;
 
-/* 1000 msec = 1 sec */
-#define SLEEP_TIME_MS 1000
-
 #define ZEPHYR_USER_NODE DT_PATH(zephyr_user)
 
 // A utility function to reverse a string
