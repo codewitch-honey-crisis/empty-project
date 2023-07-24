@@ -1,23 +1,12 @@
 #include <zephyr/dt-bindings/display/ili9xxx.h>
-
 / {
 	chosen {
 		zephyr,display = &ili9340;
 	};
-    zephyr,user {
+	zephyr,user {
 		// backlight
-        bl_gpios = <&gpioc 6 GPIO_ACTIVE_HIGH>;
-    };
-};
-&arduino_i2c {
-	status = "okay";
-	pca: pca@40 {
-		compatible = "nxp,pca9685-pwm";
-		#pwm-cells = <2>;
-		reg = <0x40>;
-		invert;
-		open-drain;
-	};
+		bl_gpios = <&gpioc 6 GPIO_ACTIVE_HIGH>;
+	};	
 };
 &arduino_spi {
 	status = "okay";
@@ -31,7 +20,7 @@
 		width = <320>;
 		height = <240>;
 		pixel-format = <ILI9XXX_PIXEL_FORMAT_RGB565>;
-		rotation = <90>;
+		rotation = <270>;
 		frmctr1 = [00 18];
 		pwctrl1 = [23 00];
 		vmctrl1 = [3e 28];
