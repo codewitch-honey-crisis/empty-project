@@ -23,6 +23,8 @@ extern "C" int main(void);
 #define LOG_LEVEL CONFIG_LOG_DEFAULT_LEVEL
 LOG_MODULE_REGISTER(app);
 
+#define ZEPHYR_USER_NODE DT_PATH(zephyr_user)
+
 using namespace gfx;
 using namespace uix;
 
@@ -30,8 +32,6 @@ using screen_t = screen<320, 240, rgb_pixel<16>>;
 using label_t = label<screen_t::control_surface_type>;
 using color_t = color<typename screen_t::pixel_type>;
 using color32_t = color<rgba_pixel<32>>;
-
-#define ZEPHYR_USER_NODE DT_PATH(zephyr_user)
 
 // A utility function to reverse a string
 static void reverse(char str[], int length)
