@@ -30,7 +30,7 @@
         cmd-data-gpios = <&gpiod 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 		width = <320>;
 		height = <240>;
-		pixel-format = <ILI9XXX_PIXEL_FORMAT_RGB888>;
+		pixel-format = <ILI9XXX_PIXEL_FORMAT_RGB565>;
 		rotation = <90>;
 		frmctr1 = [00 18];
 		pwctrl1 = [23 00];

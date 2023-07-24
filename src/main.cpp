@@ -26,7 +26,7 @@ LOG_MODULE_REGISTER(app);
 using namespace gfx;
 using namespace uix;
 
-using screen_t = screen<320, 240, rgb_pixel<24>>;
+using screen_t = screen<320, 240, rgb_pixel<16>>;
 using label_t = label<screen_t::control_surface_type>;
 using color_t = color<typename screen_t::pixel_type>;
 using color32_t = color<rgba_pixel<32>>;
@@ -167,7 +167,7 @@ int main(void)
 		srect16(0, hello_world_label.bounds().y2 + 1, main_screen.bounds().x2,
 			count_label.text_line_height() - 1 + hello_world_label.bounds().y2 + 1));
 	main_screen.register_control(count_label);
-	main_screen.background_color(color_t::white);
+	main_screen.background_color(color_t::old_lace);
 
 	display_blanking_off(display_dev);
 	char sz[16];
